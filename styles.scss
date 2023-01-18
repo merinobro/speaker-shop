@@ -1,0 +1,207 @@
+// RESET
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+@mixin flex($justify) {
+    display: flex;
+    justify-content: $justify;
+    align-items: center;
+}
+
+@mixin card {
+    height: 40rem;
+    width: 34rem;
+    background-size: cover;
+
+    @media screen and (max-width:985px) {
+        height: 36rem;
+        width: 30rem;
+    }
+}
+
+// PROJECT WIDE FONT SETTINGS
+:root {
+    font-size: 62.5%;
+    font-family: work sans;
+}
+
+// BODY & BREAKPOINT ADJUSTMENT FOR MOBILE EXPERIENCE
+body {
+    max-width: 70vw;
+    margin: 0 auto;
+    min-height: 90vh;
+
+    @media screen and (max-width:640px) {
+        max-width: 80vw;
+    }
+}
+
+// HEADER
+header {
+    min-height: 6rem;
+    @include flex(space-between);
+    font-size: 1.6rem;
+
+    .brand {
+        width: clamp(20rem, 30rem, 50rem);
+        @include flex(start);
+
+        p {
+            margin-left: 1.5rem;
+        }
+    }
+
+    img {
+        display: inline-block;
+        max-width: 2rem;
+    }
+
+    ul {
+        list-style-type: none;
+        display: flex;
+
+        li {
+            margin: 0 1rem;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    
+}
+
+// MAIN SECTION
+
+main {
+    margin-top: 5rem;
+}
+
+    // HERO SECTION W/ VIDEO LINK
+
+.hero {
+    margin-bottom: 3rem;
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    h2 {
+        font-weight: 400;
+        margin-top: 1.6rem;
+    }
+
+    div {
+        margin-top: 3.6rem;
+    }
+}
+
+.button {
+    background-color: black;
+    color: rgba(255, 255, 255, 0.841);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 1.2rem;
+    padding: .8rem .5rem;
+    transition-delay: .1s;
+
+    &:hover {
+        background-color: rgb(155, 155, 155);
+        color: black;
+        transition-delay: .1s;
+    }
+
+    img {
+        max-width: 2rem;
+        transform: translateY(.5rem);
+    }
+}
+
+    // CARDS SECTION
+
+.cards {
+    margin-top: 4rem;
+    @include flex(space-between);
+    gap: 1rem;
+
+    @media screen and (max-width:1296px) {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+}
+
+.card {
+    
+    a {
+        text-decoration: none;
+    }
+
+    h2 {
+        color: rgb(232, 232, 232);
+        font-weight: 500;
+        font-size: 1.8rem;
+        text-shadow: 0px 0px 10px rgb(147, 147, 147);
+    }
+
+    article {
+        margin: 7rem 10rem 0 3rem;
+
+        .card-arrow {
+            margin-top: 5rem;
+            background-color: white;
+            max-width: 2rem;
+            height: 2em;
+            border-radius: 50%;
+            box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.25);
+            transition-delay: .1s;
+
+            &:hover {
+              box-shadow: 0 0 0 5px rgba(255, 255, 255, 1);
+              transition-delay: .1s;
+            }
+
+            img {
+                max-width: 1.2rem;
+                transform: translate(.4rem, .4rem);
+            }
+        }
+    }
+}
+
+.left {
+    @include card;
+    background-image: url(./images/white-box.jpg);
+    background-position: center;
+}
+
+.center {
+    @include card;
+    background-image: url(./images/room.jpg);
+    background-position: left;
+}
+
+.right {
+    @include card;
+    background-image: url(./images/black-white.jpg);
+    background-position: center;
+}
+
+
+
+//FOOTER
+
+footer {
+    margin-top: 3rem;
+    font-size: 1.2rem;
+    color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: clamp(2rem, 4rem, 6rem);
+}
